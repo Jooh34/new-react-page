@@ -173,7 +173,6 @@ class EdgePiece extends Piece {
   refresh(rot_dir) {
     switch (rot_dir) {
       case R_  :
-      case L_i :
         switch (this.loc) {
           case FR :
             this.loc = UR;
@@ -191,6 +190,12 @@ class EdgePiece extends Piece {
             this.loc = FR;
             break;
 
+          default :
+        }
+        break;
+
+      case L_i :
+        switch (this.loc) {
           case FL :
             this.loc = UL;
             break;
@@ -213,7 +218,6 @@ class EdgePiece extends Piece {
         break;
 
       case R_i :
-      case L_ :
         switch (this.loc) {
           case FR :
             this.loc = DR;
@@ -231,6 +235,13 @@ class EdgePiece extends Piece {
             this.loc = FR;
             break;
 
+          default :
+            break;
+        }
+        break;
+
+      case L_ :
+        switch (this.loc) {
           case FL :
             this.loc = DL;
             break;
@@ -253,7 +264,6 @@ class EdgePiece extends Piece {
         break;
 
       case U_ :
-      case D_i :
         switch (this.loc) {
           case UF :
             this.loc = UL;
@@ -271,6 +281,13 @@ class EdgePiece extends Piece {
             this.loc = UB;
             break;
 
+          default :
+            break;
+        }
+        break;
+
+      case D_i :
+        switch (this.loc) {
           case DF :
             this.loc = DL;
             break;
@@ -293,7 +310,6 @@ class EdgePiece extends Piece {
         break;
 
       case U_i :
-      case D_ :
         switch (this.loc) {
           case UF :
             this.loc = UR;
@@ -311,6 +327,13 @@ class EdgePiece extends Piece {
             this.loc = UF;
             break;
 
+          default :
+            break;
+        }
+        break;
+
+      case D_ :
+        switch (this.loc) {
           case DF :
             this.loc = DR;
             break;
@@ -333,7 +356,6 @@ class EdgePiece extends Piece {
         break;
 
       case F_ :
-      case B_i :
         switch (this.loc) {
           case UF :
             this.loc = FR;
@@ -351,6 +373,13 @@ class EdgePiece extends Piece {
             this.loc = UF;
             break;
 
+          default :
+            break;
+        }
+        break;
+
+      case B_i :
+        switch (this.loc) {
           case UB :
             this.loc = BR;
             break;
@@ -373,7 +402,6 @@ class EdgePiece extends Piece {
         break;
 
       case F_i :
-      case B_ :
         switch (this.loc) {
           case UF :
             this.loc = FL;
@@ -391,6 +419,13 @@ class EdgePiece extends Piece {
             this.loc = UF;
             break;
 
+          default :
+            break;
+        }
+        break;
+
+      case B_ :
+        switch (this.loc) {
           case UB :
             this.loc = BL;
             break;

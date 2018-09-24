@@ -140,7 +140,6 @@ class CornerPiece extends Piece {
   refresh(rot_dir) {
     switch (rot_dir) {
       case R_  :
-      case L_i :
         switch (this.loc) {
           case UFR :
             this.loc = UBR;
@@ -158,6 +157,13 @@ class CornerPiece extends Piece {
             this.loc = UFR;
             break;
 
+          default :
+            break;
+        }
+        break;
+
+      case L_i :
+        switch (this.loc) {
           case UFL :
             this.loc = UBL;
             break;
@@ -180,7 +186,6 @@ class CornerPiece extends Piece {
         break;
 
       case R_i :
-      case L_ :
         switch (this.loc) {
           case UFR :
             this.loc = DFR;
@@ -198,6 +203,13 @@ class CornerPiece extends Piece {
             this.loc = UFR;
             break;
 
+          default :
+            break;
+        }
+      break;
+      
+      case L_ :
+        switch (this.loc) {
           case UFL :
             this.loc = DFL;
             break;
@@ -220,7 +232,6 @@ class CornerPiece extends Piece {
         break;
 
       case U_ :
-      case D_i :
         switch (this.loc) {
           case UFL :
             this.loc = UBL;
@@ -238,6 +249,13 @@ class CornerPiece extends Piece {
             this.loc = UFL;
             break;
 
+          default :
+            break;
+        }
+        break;
+
+      case D_i :
+        switch (this.loc) {
           case DFL :
             this.loc = DBL;
             break;
@@ -260,7 +278,6 @@ class CornerPiece extends Piece {
         break;
 
       case U_i :
-      case D_ :
         switch (this.loc) {
           case UFL :
             this.loc = UFR;
@@ -278,6 +295,13 @@ class CornerPiece extends Piece {
             this.loc = UFL;
             break;
 
+          default :
+            break;
+        }
+        break;
+
+      case D_ :
+        switch (this.loc) {
           case DFL :
             this.loc = DFR;
             break;
@@ -300,7 +324,6 @@ class CornerPiece extends Piece {
         break;
 
       case F_ :
-      case B_i :
         switch (this.loc) {
           case UFL :
             this.loc = UFR;
@@ -318,6 +341,13 @@ class CornerPiece extends Piece {
             this.loc = UFL;
             break;
 
+          default :
+            break;
+        }
+        break;
+
+      case B_i :
+        switch (this.loc) {
           case UBL :
             this.loc = UBR;
             break;
@@ -340,7 +370,6 @@ class CornerPiece extends Piece {
         break;
 
       case F_i :
-      case B_ :
         switch (this.loc) {
           case UFL :
             this.loc = DFL;
@@ -358,6 +387,13 @@ class CornerPiece extends Piece {
             this.loc = UFL;
             break;
 
+          default :
+            break;
+        }
+        break;
+
+      case B_ :
+        switch (this.loc) {
           case UBL :
             this.loc = DBL;
             break;

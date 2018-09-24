@@ -8,11 +8,20 @@ const PageContainer = styled.div`
   height: 1000px;
   background-color: #edeeef;
 `
+
+const FrameContainer = styled.div`
+  max-width: 1000px;
+  margin: auto;
+  background-color: #ffffff;
+`
+
 class HomePage extends Component {
   render() {
     return (
       <PageContainer>
-        <CubeScene />
+        <FrameContainer>
+          <CubeScene />
+        </FrameContainer>
       </PageContainer>
     );
   }

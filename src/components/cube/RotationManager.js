@@ -48,6 +48,7 @@ const L_ = 8;
 const L_i = 9;
 const D_ = 10;
 const D_i = 11;
+const S = 12;
 //
 
 const MAX = 18; // control speed of cubing
@@ -62,6 +63,9 @@ const MAX = 18; // control speed of cubing
 
 ///////
 
+const cubeincube = [F_, L_, F_, U_i, R_, U_, F_, F_, L_, L_, U_i, L_i, B_, D_i, B_i, L_, L_, U_, S, S, S, S, S];
+const cubeincube_rev = [U_i, L_, L_, B_, D_, B_i, L_, U_, L_, L_, F_, F_, U_i, R_i, U_, F_i, L_i, F_i, S, S, S, S, S];
+
 class RotationManager {
   constructor(TP_list,EP_list,CP_list) {
     this.TP_list = TP_list;
@@ -69,12 +73,17 @@ class RotationManager {
     this.CP_list = CP_list;
 
     this.count = 0;
-    this.formula = [U_];
+    this.formula = [];
+    this.isReverse = false;
   }
 
   update() {
     if(!this.formula.length) {
-
+      console.log('empty');
+      if(this.isReverse) this.formula = cubeincube.slice();
+      else this.formula = cubeincube_rev.slice();
+      console.log(this.formula);
+      this.isReverse = !this.isReverse;
     }
     else {
       if(this.count>=MAX) {
@@ -126,28 +135,28 @@ class RotationManager {
         tp = R;
         ep = [UR, FR, BR, DR];
         cp = [UFR, UBR, DBR, DFR];
-        axis = axis_xi;
+        axis = axis_x;
         break;
 
       case R_i :
         tp = R;
         ep = [UR, FR, BR, DR];
         cp = [UFR, UBR, DBR, DFR];
-        axis = axis_x;
+        axis = axis_xi;
         break;
 
       case L_ :
         tp = L;
         ep = [UL, FL, BL, DL];
         cp = [UFL, UBL, DBL, DFL];
-        axis = axis_x;
+        axis = axis_xi;
         break;
 
       case L_i :
         tp = L;
         ep = [UL, FL, BL, DL];
         cp = [UFL, UBL, DBL, DFL];
-        axis = axis_xi;
+        axis = axis_x;
         break;
 
       case B_ :
@@ -179,7 +188,7 @@ class RotationManager {
         break;
 
       default:
-        break;
+        return;
     }
 
     for(i=0; i<6; i++) {
@@ -205,20 +214,32 @@ class RotationManager {
     }
 
     if(last_count) {
-      for(i=0; i<12; i++) {
-        for(j=0; j<4; j++) {
+
+      var ep_ = [];
+      var cp_ = [];
+
+      for(j=0; j<4; j++) {
+        for(i=0; i<12; i++) {
           if(this.EP_list[i].loc === ep[j]) {
-            this.EP_list[i].refresh(rot_dir);
+            ep_.push(i);
           }
         }
       }
 
-      for(i=0; i<8; i++) {
-        for(j=0; j<4; j++) {
+      for(i=0; i<4; i++) {
+        this.EP_list[ep_[i]].refresh(rot_dir);
+      }
+
+      for(j=0; j<4; j++) {
+        for(i=0; i<8; i++) {
           if(this.CP_list[i].loc === cp[j]) {
-            this.CP_list[i].refresh(rot_dir);
+            cp_.push(i);
           }
         }
+      }
+
+      for(i=0; i<4; i++) {
+        this.CP_list[cp_[i]].refresh(rot_dir);
       }
     }
   }

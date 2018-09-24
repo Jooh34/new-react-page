@@ -84,7 +84,7 @@ class Piece {
   rotate(axis,angle) {
     const quaternion = new THREE.Quaternion().setFromAxisAngle( axis, angle );
     this.cube.position.applyQuaternion(quaternion);
-    this.cube.rotateOnAxis( axis, angle );
+    this.cube.applyQuaternion(quaternion);
   }
 }
 

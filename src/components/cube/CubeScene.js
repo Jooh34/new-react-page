@@ -9,16 +9,14 @@ import RotationManager from './RotationManager';
 var THREE = require('three');
 var TrackballControls = require('three-trackballcontrols');
 
-const FrameContainer = styled.div`
-  max-width: 1000px;
-  margin: auto;
-  background-color: #ffffff;
-`
 const SceneContainer = styled.div`
   width: 400px;
   height: 400px;
-  margin: auto;
-  border: 2px solid black;
+
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 200px;
+  }
 `;
 
 class CubeScene extends Component {
@@ -124,9 +122,7 @@ class CubeScene extends Component {
 
   render() {
     return (
-      <FrameContainer>
-        <SceneContainer innerRef={(mount) => { this.mount = mount }} />
-      </FrameContainer>
+      <SceneContainer innerRef={(mount) => { this.mount = mount }} />
     )
   }
 }

@@ -16,6 +16,7 @@ const ButtonContainer = styled.div`
 `;
 
 const MenuButton = styled.button`
+  background-color: #FFFFFF;
   color: #000000;
   font-family: sans-serif;
   font-weight: bold;
