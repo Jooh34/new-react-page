@@ -10,12 +10,13 @@ var THREE = require('three');
 var TrackballControls = require('three-trackballcontrols');
 
 const SceneContainer = styled.div`
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
+  float: left;
 
   @media (max-width: 768px) {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
   }
 `;
 

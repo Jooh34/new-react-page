@@ -8,9 +8,14 @@ import { TweenMax, Linear, TimelineMax, Expo} from 'gsap/TweenMax'
 
 import { set_category } from '../../actions';
 
+const HeaderContainer = styled.div`
+  max-width: 1000px;
+  margin: auto;
+  background-color: #ffffff;
+`
 const ButtonContainer = styled.div`
-  height: 60px;
-  margin-left: 20px;
+  height: 40px;
+  margin-left: 10px;
   margin-top: 20px;
   position: relative;
 `;
@@ -23,18 +28,18 @@ const MenuButton = styled.button`
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  line-height: 50px;
   cursor: pointer;
   outline: none;
 
   position: relative;
   display: block;
-  height: 50px;
-  width: 100px;
+  height: 40px;
+  width: 90px;
   border: 1px solid #000000;
+  border-radius: 2px;
 
   @media (max-width: 768px) {
-    width : 50px;
+    width : 40px;
   }
 `
 
@@ -52,7 +57,7 @@ const Title = styled.div`
 `
 
 const TitleText = styled.h1`
-  font-size: 3em;
+  font-size: 2em;
   font-family: ConsertOne;
 `
 
@@ -152,17 +157,19 @@ class NavBar extends Component {
   render() {
     return (
       <div>
-        <ButtonContainer>
-          <Title>
-            <TitleText>Jooh</TitleText>
-          </Title>
-          <MenuButton id='menu_button' onMouseOver={()=>this.handleMenuButtonOver()} onMouseOut={()=>this.handleMenuButtonOut()} onClick={()=>this.handleMenuButtonClick()}>
-              <Icon id='menu_icon' name='bars'/>
-              <MediaQuery query="(min-width: 768px)">
-                <Word>M</Word><Word>e</Word><Word>n</Word><Word>u</Word>
-              </MediaQuery>
-          </MenuButton>
-        </ButtonContainer>
+        <HeaderContainer>
+          <ButtonContainer>
+            <Title>
+              <TitleText>Jooh</TitleText>
+            </Title>
+            <MenuButton id='menu_button' onMouseOver={()=>this.handleMenuButtonOver()} onMouseOut={()=>this.handleMenuButtonOut()} onClick={()=>this.handleMenuButtonClick()}>
+                <Icon id='menu_icon' name='bars'/>
+                <MediaQuery query="(min-width: 768px)">
+                  <Word>M</Word><Word>e</Word><Word>n</Word><Word>u</Word>
+                </MediaQuery>
+            </MenuButton>
+          </ButtonContainer>
+        </HeaderContainer>
 
         <Sidebar.Pushable as={Segment}>
           <Sidebar

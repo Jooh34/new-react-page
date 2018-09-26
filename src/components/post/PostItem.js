@@ -9,7 +9,8 @@ const PostItemContainer = styled.div`
   display: relative;
   width: 100%;
   height: 250px;
-
+  padding-right: 10px;
+  
   opacity: 0;
   top: 50px;
 
