@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { Icon } from 'semantic-ui-react';
-
 import SkillImage from './SkillImage';
 const skilldatum = require('../../assets/contents/skillpreview').default;
 
@@ -15,7 +13,7 @@ const FrameContainer = styled.div`
 const TitleContainer = styled.div`
   width: max-content;
   margin: auto;
-  padding-top: 30px;
+  padding-top: 60px;
 `
 
 const Title = styled.p`
@@ -23,8 +21,11 @@ const Title = styled.p`
   display: inline;
   vertical-align: middle;
   font-size: 2.5em;
-  font-family: ConcertOne;
+  font-family: Rustico;
   font-weight: bold;
+  @media (max-width: 768px) {
+    font-size: 2em;
+  }
 `
 
 const SkillContainer = styled.div`
@@ -43,7 +44,6 @@ class SkillFrame extends Component {
     return (
       <FrameContainer>
         <TitleContainer>
-          <Icon size='big' color='grey' name='pencil alternate'/>
           <Title>Skills</Title>
         </TitleContainer>
         <SkillContainer>

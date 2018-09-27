@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
-import { Sidebar, Menu, Segment, Icon } from 'semantic-ui-react'
-import styled from 'styled-components'
-import { TweenMax, Linear, TimelineMax, Expo} from 'gsap/TweenMax'
+import { Sidebar, Menu, Segment, Icon } from 'semantic-ui-react';
+import styled from 'styled-components';
+import { TweenMax, Linear, TimelineMax, Expo} from 'gsap/TweenMax';
 
 import { set_category } from '../../actions';
 
@@ -56,9 +56,11 @@ const Title = styled.div`
   margin-right: auto;
 `
 
-const TitleText = styled.h1`
-  font-size: 2em;
-  font-family: ConsertOne;
+const TitleText = styled.p`
+  font-size: 3em;
+  font-family: 'Rustico';
+
+  cursor: pointer;
 `
 
 const CustomMenuItem = styled(Menu.Item)`
@@ -160,7 +162,7 @@ class NavBar extends Component {
         <HeaderContainer>
           <ButtonContainer>
             <Title>
-              <TitleText>Jooh</TitleText>
+              <TitleText onClick={()=>this.handleMenuClick('home')}>Jooh</TitleText>
             </Title>
             <MenuButton id='menu_button' onMouseOver={()=>this.handleMenuButtonOver()} onMouseOut={()=>this.handleMenuButtonOut()} onClick={()=>this.handleMenuButtonClick()}>
                 <Icon id='menu_icon' name='bars'/>
@@ -186,14 +188,14 @@ class NavBar extends Component {
           <MediaQuery query="(min-width: 768px)">
             <Menu.Item onClick={()=>this.handleMenuClick('home')} as='a'>
               <TempBox>
-                <Icon name='home' />
-                Home
+                <Icon name='user' />
+                About
               </TempBox>
             </Menu.Item>
             <Menu.Item onClick={()=>this.handleMenuClick('about')} as='a'>
               <TempBox>
-                <Icon name='user' />
-                About Me
+                <Icon name='desktop' />
+                Skills
               </TempBox>
             </Menu.Item>
             <Menu.Item onClick={()=> {

@@ -79,10 +79,8 @@ class RotationManager {
 
   update() {
     if(!this.formula.length) {
-      console.log('empty');
       if(this.isReverse) this.formula = cubeincube.slice();
       else this.formula = cubeincube_rev.slice();
-      console.log(this.formula);
       this.isReverse = !this.isReverse;
     }
     else {

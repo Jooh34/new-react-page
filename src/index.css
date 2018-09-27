@@ -2,3 +2,8 @@
   font-family: 'ConcertOne';
   src: url('./assets/fonts/ConcertOne-Regular.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Rustico';
+  src: url('./assets/fonts/Rustico-Regular.otf') format('truetype');
+}

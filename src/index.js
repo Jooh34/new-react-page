@@ -8,6 +8,7 @@ import 'semantic-ui-css/semantic.min.css';
 
 import rootReducer from './reducers';
 import Routes from './Routes';
+import './index.css';
 
 const store = createStore(rootReducer);
 
