@@ -13,6 +13,7 @@ const Container = styled.div`
   opacity: 0;
   position: relative;
   @media (max-width: 768px) {
+    width: 100%;
     padding-left: 10px;
     padding-top: 10px;
     padding-right: 10px;

@@ -94,7 +94,7 @@ class SocialButton extends Component{
     this.tl_btClick = new TimelineMax({paused: true});
     const button_container = document.querySelector("#button_container");
     const inner_container = document.querySelector("#inner_container");
-    this.tl_btClick.to(button_container, 1, {width: '220px', opacity: 1, ease: Expo.easeOut}, 0.03, "#start");
+    this.tl_btClick.to(button_container, 1, {width: '160px', opacity: 1, ease: Expo.easeOut}, 0.03, "#start");
     this.tl_btClick.to(inner_container, 1, {opacity: 1, ease: Expo.easeOut}, 0.03, "#start");
   }
 
@@ -136,10 +136,9 @@ class SocialButton extends Component{
         </ContactButton>
         <ButtonContainer id='button_container'>
           <InnerContainer id='inner_container'>
-            <IconContainer href='https://github.com'> <Icon inverted link name='github' size='big'></Icon> </IconContainer>
+            <IconContainer href='https://github.com/Jooh34'> <Icon inverted link name='github' size='big'></Icon> </IconContainer>
             <IconContainer href='https://github.com'> <Icon inverted link name='mail' size='big'></Icon> </IconContainer>
-            <IconContainer href='https://github.com'> <Icon inverted link name='instagram' size='big'></Icon> </IconContainer>
-            <IconContainer href='https://github.com'> <Icon inverted link name='facebook' size='big'></Icon> </IconContainer>
+            <IconContainer href='https://www.instagram.com/jooh.nam/'> <Icon inverted link name='instagram' size='big'></Icon> </IconContainer>
           </InnerContainer>
         </ButtonContainer>
       </div>

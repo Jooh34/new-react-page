@@ -8,6 +8,7 @@ const FrameContainer = styled.div`
   max-width: 1000px;
   margin: auto;
   background-color: #ffffff;
+  padding-bottom: 100px;
 `
 
 const TitleContainer = styled.div`

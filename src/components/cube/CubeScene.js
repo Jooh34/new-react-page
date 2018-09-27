@@ -13,7 +13,8 @@ const SceneContainer = styled.div`
   width: 200px;
   height: 200px;
   float: left;
-
+  
+  margin: auto;
   @media (max-width: 768px) {
     width: 100px;
     height: 100px;

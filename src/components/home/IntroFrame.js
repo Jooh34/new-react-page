@@ -11,10 +11,6 @@ const FrameContainer = styled.div`
   margin: auto;
   position: relative;
   background-color: #ffffff;
-
-  @media (max-width: 768px) {
-    height: 600px;
-  }
 `
 
 const TitleContainer = styled.div`
@@ -42,7 +38,7 @@ class IntroFrame extends Component {
 
   componentDidMount() {
     const el = document.querySelector('#intro_container');
-    TweenMax.to(el, 3, { opacity:1, top: '0'});
+    TweenMax.to(el, 3, { opacity:1, top: 0});
   }
 
   render() {

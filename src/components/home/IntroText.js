@@ -15,9 +15,10 @@ const Container = styled.div`
   position: relative;
 
   @media (max-width: 768px) {
-    padding-left: 10px;
+    width: 100%;
+    padding-left: 30px;
     padding-top: 30px;
-    padding-right: 10px;
+    padding-right: 30px;
   }
 `;
 
