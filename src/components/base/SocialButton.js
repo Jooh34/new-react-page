@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import { TimelineMax, Expo } from 'gsap/TweenMax';
 
-import { Icon } from 'semantic-ui-react';
+import { Icon, Popup } from 'semantic-ui-react';
 
 const ContactButton = styled.div`
   width: 130px;
@@ -117,6 +117,15 @@ class SocialButton extends Component{
     this.setState({ bt_display: !this.state.bt_display})
   }
 
+  handleMailButtonClick() {
+    const el = document.createElement('textarea');
+    el.value = 'jooh3444@gmail.com';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  }
+
   render() {
     return (
       <div>
@@ -137,7 +146,12 @@ class SocialButton extends Component{
         <ButtonContainer id='button_container'>
           <InnerContainer id='inner_container'>
             <IconContainer href='https://github.com/Jooh34'> <Icon inverted link name='github' size='big'></Icon> </IconContainer>
-            <IconContainer href='https://github.com'> <Icon inverted link name='mail' size='big'></Icon> </IconContainer>
+            <Popup
+              trigger={<IconContainer onClick={()=>this.handleMailButtonClick()}> <Icon inverted link name='mail' size='big'></Icon> </IconContainer>}
+              content='E-mail Copied!'
+              on='click'
+              hideOnScroll
+            />
             <IconContainer href='https://www.instagram.com/jooh.nam/'> <Icon inverted link name='instagram' size='big'></Icon> </IconContainer>
           </InnerContainer>
         </ButtonContainer>
