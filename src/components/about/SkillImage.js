@@ -84,11 +84,16 @@ class SkillImage extends Component {
     target_y = rect.top + scrollTop;
 
     const this_comp = this;
+    var y = window.innerHeight-200;
+    if (target_y-y < 0.1 && !this_comp.state.visible) {
+      TweenMax.to(el, 1, { opacity: 1, top: 0});
+      this_comp.setState({ visible: true })
+    }
 
     window.addEventListener("scroll", function(event) {
       var y = this.scrollY+window.innerHeight-200;
       if (target_y-y < 0.1 && !this_comp.state.visible) {
-        TweenMax.to(el, 1, { opacity:1, top:0});
+        TweenMax.to(el, 1, { opacity: 1, top: 0});
         this_comp.setState({ visible: true })
       }
     }, true);

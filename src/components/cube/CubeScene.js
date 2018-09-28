@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import CenterPiece from './CenterPiece';
-import EdgePiece from './EdgePiece';
-import CornerPiece from './CornerPiece';
-import RotationManager from './RotationManager';
+import { CenterPiece, CornerPiece, EdgePiece, RotationManager } from './index.js';
 
 var THREE = require('three');
 var TrackballControls = require('three-trackballcontrols');
@@ -13,7 +10,7 @@ const SceneContainer = styled.div`
   width: 200px;
   height: 200px;
   float: left;
-  
+
   margin: auto;
   @media (max-width: 768px) {
     width: 100px;

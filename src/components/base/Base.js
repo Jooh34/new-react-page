@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import NavBar from './NavBar';
-import Footer from './Footer';
+import { NavBar, Footer } from './index.js';
 
 class Base extends Component{
   render() {

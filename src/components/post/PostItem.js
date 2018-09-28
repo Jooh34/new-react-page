@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 import { Icon, Label } from 'semantic-ui-react'
 import MediaQuery from 'react-responsive';
-import { TweenMax } from 'gsap/TweenMax';
+import { TweenMax, TimelineMax } from 'gsap/TweenMax';
 
 const PostItemContainer = styled.div`
   margin-top: 50px;
   display: relative;
   width: 100%;
-  height: 250px;
+  height: 310px;
   padding-right: 10px;
-  
+  padding-top: 20px;
+  padding-left: 20px;
+
   opacity: 0;
   top: 50px;
 
@@ -18,29 +21,34 @@ const PostItemContainer = styled.div`
   box-shadow:2px 2px 2px 2px #bbb;
 
   @media (max-width: 768px) {
-    height : 100px;
+    height : 120px;
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
   }
 `
 
 const Thumbnail = styled.img`
   float: left;
+  margin-left: 20px;
   width: 250px;
   height: 200px;
 
   @media (max-width: 768px) {
     width: 100px;
     height: 100px;
+    margin-left: 10px;
   }
 `
 
 const TextContainer = styled.div`
   float: left;
   padding-left: 30px;
-  width: calc(100% - 250px);
+  width: calc(100% - 270px);
   height: 200px;
 
   @media (max-width: 768px) {
-    width: calc(100% - 100px);
+    width: calc(100% - 110px);
     height: 100px;
     padding-left: 10px;
   }
@@ -79,12 +87,40 @@ const GithubUrlTemplate = styled.div`
 `
 
 const LabelContainer = styled.div`
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
   float: left;
-  width: 100%;
-  height: 50px;
+  width: 450px;
+  height: 60px;
 `
+
+const SeeMoreButton = styled.div`
+  float:right;
+  width: 100px;
+  height: 40px;
+
+  background-color: #ffffff;
+  border: 1px solid #BEA478;
+  border-radius: 3px;
+
+  margin: auto;
+  margin-top: 40px;
+
+  padding-top: 12px;
+  cursor: pointer;
+
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+`
+
+const SeeMoreText = styled.p`
+  color: #BEA478;
+  font-size: 1em;
+  font-family: sans-serif;
+`
+
 class PostItem extends Component {
   constructor(props) {
     super(props);
@@ -102,14 +138,38 @@ class PostItem extends Component {
     target_y = rect.top + scrollTop;
 
     const this_comp = this;
+    var y = window.innerHeight-200;
+    if (target_y-y < 0.1 && !this_comp.state.visible) {
+      TweenMax.to(el, 1, { opacity: 1, top: 0 });
+      this_comp.setState({ visible: true })
+    }
 
     window.addEventListener("scroll", function(event) {
       var y = this.scrollY+window.innerHeight-200;
       if (target_y-y < 0.1 && !this_comp.state.visible) {
-        TweenMax.to(el, 1, { opacity:1, top:0});
+        TweenMax.to(el, 1, { opacity: 1, top: 0 });
         this_comp.setState({ visible: true })
       }
     }, true);
+
+    // Timeline for click
+    this.tl_btOver = new TimelineMax({paused: true});
+    const el_bt = document.getElementById('button_'+post.id),
+    el_txt = document.getElementById('text_'+post.id);
+    this.tl_btOver.to(el_txt, 0.5, {color: '#FFFFFF'}, "#start");
+    this.tl_btOver.to(el_bt, 0.5, {background:'#BEA478'}, "#start");
+  }
+
+  handleButtonOver() {
+    this.tl_btOver.play();
+  }
+
+  handleButtonOut() {
+    this.tl_btOver.reverse();
+  }
+
+  handleButtonClick() {
+    this.props.history.push('/post/'+this.props.post.id);
   }
 
   render() {
@@ -134,10 +194,17 @@ class PostItem extends Component {
         </TextContainer>
         <MediaQuery query="(min-width: 768px)">
           <LabelContainer> { post.labels.map(label => <Label content={label}/>) } </LabelContainer>
+          <SeeMoreButton
+            id={'button_'+post.id}
+            onMouseOver={()=>this.handleButtonOver()}
+            onMouseOut={()=>this.handleButtonOut()}
+            onClick={()=>this.handleButtonClick()}>
+            <SeeMoreText id={'text_'+post.id}> See More </SeeMoreText>
+          </SeeMoreButton>
         </MediaQuery>
       </PostItemContainer>
     );
   }
 }
 
-export default PostItem;
+export default withRouter(PostItem);

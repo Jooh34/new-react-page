@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import {TimelineMax, Expo} from 'gsap/TweenMax';
+import { TimelineMax, Expo } from 'gsap/TweenMax';
 
 import { Icon } from 'semantic-ui-react';
 

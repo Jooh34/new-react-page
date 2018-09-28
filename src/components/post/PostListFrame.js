@@ -35,7 +35,7 @@ const Title = styled.p`
   vertical-align: middle;
   font-size: 2.5em;
   text-transform: uppercase;
-  font-family: sans-serif;
+  font-family: Rustico;
   font-weight: bold;
 
   opacity: 0;
@@ -66,7 +66,6 @@ class PostListFrame extends Component {
   }
 
   render() {
-
     const filtered_list = post_list.filter(post => post.category === this.props.category)
     return (
       <FrameContainer>

@@ -222,13 +222,13 @@ class NavBar extends Component {
             </Menu.Item>
           </MediaQuery>
             <div>
-              <CustomMenuItem as='a' visible={this.state.project_sub_visible} count={this.countMaker(0,7)} onClick={()=>this.handlePostClick('opengl')}>OpenGL</CustomMenuItem>
-              <CustomMenuItem as='a' visible={this.state.project_sub_visible} count={this.countMaker(1,7)} onClick={()=>this.handlePostClick('android')}>Android</CustomMenuItem>
-              <CustomMenuItem as='a' visible={this.state.project_sub_visible} count={this.countMaker(2,7)} onClick={()=>this.handlePostClick('react')}>React</CustomMenuItem>
-              <CustomMenuItem as='a' visible={this.state.project_sub_visible} count={this.countMaker(3,7)} onClick={()=>this.handlePostClick('tensorflow')}>Tensorflow</CustomMenuItem>
-              <CustomMenuItem as='a' visible={this.state.project_sub_visible} count={this.countMaker(4,7)} onClick={()=>this.handlePostClick('datacommunication')}>Data Com</CustomMenuItem>
-              <CustomMenuItem as='a' visible={this.state.project_sub_visible} count={this.countMaker(5,7)} onClick={()=>this.handlePostClick('database')}>DataBase</CustomMenuItem>
-              <CustomMenuItem as='a' visible={this.state.project_sub_visible} count={this.countMaker(6,7)} onClick={()=>this.handlePostClick('etc')}>ETC</CustomMenuItem>
+              <CustomMenuItem as='a' visible={this.state.project_sub_visible ? 1 : 0} count={this.countMaker(0,7)} onClick={()=>this.handlePostClick('opengl')}>OpenGL</CustomMenuItem>
+              <CustomMenuItem as='a' visible={this.state.project_sub_visible ? 1 : 0} count={this.countMaker(1,7)} onClick={()=>this.handlePostClick('android')}>Android</CustomMenuItem>
+              <CustomMenuItem as='a' visible={this.state.project_sub_visible ? 1 : 0} count={this.countMaker(2,7)} onClick={()=>this.handlePostClick('react')}>React</CustomMenuItem>
+              <CustomMenuItem as='a' visible={this.state.project_sub_visible ? 1 : 0} count={this.countMaker(3,7)} onClick={()=>this.handlePostClick('tensorflow')}>Tensorflow</CustomMenuItem>
+              <CustomMenuItem as='a' visible={this.state.project_sub_visible ? 1 : 0} count={this.countMaker(4,7)} onClick={()=>this.handlePostClick('datacommunication')}>Data Com</CustomMenuItem>
+              <CustomMenuItem as='a' visible={this.state.project_sub_visible ? 1 : 0} count={this.countMaker(5,7)} onClick={()=>this.handlePostClick('database')}>DataBase</CustomMenuItem>
+              <CustomMenuItem as='a' visible={this.state.project_sub_visible ? 1 : 0} count={this.countMaker(6,7)} onClick={()=>this.handlePostClick('etc')}>ETC</CustomMenuItem>
             </div>
           </Sidebar>
 
