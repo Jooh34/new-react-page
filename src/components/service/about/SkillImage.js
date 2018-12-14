@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { TweenMax } from 'gsap/TweenMax';
 
-import { set_category } from '../../actions';
+import { setCategory } from '../../../store/modules/service';
 
 const ImageLink = styled.a`
   cursor : pointer;
@@ -123,7 +123,7 @@ class SkillImage extends Component {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        setCategory: (category) => dispatch(set_category(category))
+        setCategory: (category) => dispatch(setCategory(category))
     };
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { TweenMax } from 'gsap/TweenMax';
 
-import profile from '../../assets/images/avatar.jpg';
+import profile from '../../../assets/images/avatar.jpg';
 
 const Container = styled.div`
   padding-top: 50px;

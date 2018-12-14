@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import SkillImage from './SkillImage';
-const skilldatum = require('../../assets/contents/skillpreview').default;
+const skilldatum = require('../../../assets/contents/skillpreview').default;
 
 const FrameContainer = styled.div`
   max-width: 1000px;

@@ -5,7 +5,7 @@ import { TimelineMax, Expo } from 'gsap/TweenMax';
 
 import PostList from './PostList';
 
-const post_list = require('../../assets/contents/posts').default;
+const post_list = require('../../../assets/contents/posts').default;
 
 const FrameContainer = styled.div`
   max-width: 1000px;
@@ -81,7 +81,7 @@ class PostListFrame extends Component {
 
 let mapStateToProps = (state) => {
     return {
-        category: state.postReducer.category
+        category: state.service.category
     };
 }
 

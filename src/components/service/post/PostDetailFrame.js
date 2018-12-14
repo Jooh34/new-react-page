@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const post_list = require('../../assets/contents/posts').default;
+const post_list = require('../../../assets/contents/posts').default;
 
 const PageContainer = styled.div`
   max-width: 1000px;

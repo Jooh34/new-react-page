@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+
 import MediaQuery from 'react-responsive';
 import { Sidebar, Menu, Segment, Icon } from 'semantic-ui-react';
-import styled from 'styled-components';
 import { TweenMax, Linear, TimelineMax, Expo} from 'gsap/TweenMax';
 
-import { set_category } from '../../actions';
+import { setCategory } from '../../store/modules/service';
 
 const HeaderContainer = styled.div`
   max-width: 1000px;
@@ -243,7 +244,7 @@ class NavBar extends Component {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        setCategory: (category) => dispatch(set_category(category))
+        setCategory: (category) => dispatch(setCategory(category))
     };
 }
 
