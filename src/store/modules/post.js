@@ -4,18 +4,17 @@ const Add_POST = 'post/ADD_POST';
 const ADD_CONTENT_BLOCK = 'post/ADD_CONTENT_BLOCK';
 const DELETE_CONTENT_BLOCK = 'post/DELETE_CONTENT_BLOCK';
 const SWAP_CONTENT_BLOCK = 'post/SWAP_CONTENT_BLOCK';
-
 const CHANGE_CONTENT_TYPE = 'post/CHANGE_CONTENT_TYPE';
-const CHANGE_CONTENT_VALUE = 'post/CHANGE_CONTENT_VALUE';
+const CHANGE_CONTENT_TEXT = 'post/CHANGE_CONTENT_TEXT';
 
 // Action Creators
 export const addPost = post => ({ type: Add_POST, post });
 
 export const addContentBlock = () => ({ type: ADD_CONTENT_BLOCK });
 export const deleteContentBlock = (index) => ({ type: DELETE_CONTENT_BLOCK, index });
-export const swapContentBlock = (index) => ({ type: SWAP_CONTENT_BLOCK, index })
-export const changeContentType = (index, content_type) => ({ type: CHANGE_CONTENT_TYPE, index, content_type})
-export const changeContentValue = (index, value) => ({ type: CHANGE_CONTENT_VALUE, index, value})
+export const swapContentBlock = (index) => ({ type: SWAP_CONTENT_BLOCK, index });
+export const changeContentType = (index, block_type) => ({ type: CHANGE_CONTENT_TYPE, index, block_type });
+export const changeContentText = (index, text) => ({ type: CHANGE_CONTENT_TEXT, index, text });
 
 const initialState = {
   posts: [],
@@ -23,6 +22,7 @@ const initialState = {
     title: '',
     description: '',
     contents: [],
+    next_id: 0,
   },
 };
 
@@ -42,10 +42,12 @@ export default function post(state = initialState, action) {
           contents: [
             ...state.post.contents,
             {
-              type: '',
-              value: '',
+              type:'',
+              text:'',
+              id: state.post.next_id,
             }
-          ]
+          ],
+          next_id: state.post.next_id + 1,
         }
       }
 
@@ -53,7 +55,7 @@ export default function post(state = initialState, action) {
       return {
         ...state,
         post: {
-          ...post,
+          ...state.post,
           contents: state.post.contents.filter((item, index) => index !== action.index),
         }
       }
@@ -68,7 +70,7 @@ export default function post(state = initialState, action) {
       return {
         ...state,
         post: {
-          ...post,
+          ...state.post,
           contents: arr,
         }
       }
@@ -77,30 +79,29 @@ export default function post(state = initialState, action) {
       return {
         ...state,
         post: {
-          ...post,
-          contents: state.post.contents.map((content, i) => i === action.index ?
-          {
-            ...content,
-            type: action.content_type,
-          }
-          : content),
+          ...state.post,
+          contents: state.post.contents.map(
+            (content, i) => (i === action.index) ? {
+              ...content,
+              type: action.block_type
+            } : content
+          )
         }
       }
 
-    case CHANGE_CONTENT_VALUE:
+    case CHANGE_CONTENT_TEXT:
       return {
         ...state,
         post: {
-          ...post,
-          contents: state.post.contents.map((content, i) => i === action.index ?
-          {
-            ...content,
-            value: action.value,
-          }
-          : content),
+          ...state.post,
+          contents: state.post.contents.map(
+            (content, i) => (i === action.index) ? {
+              ...content,
+              text: action.text
+            } : content
+          )
         }
       }
-
     default:
       return state;
   }
